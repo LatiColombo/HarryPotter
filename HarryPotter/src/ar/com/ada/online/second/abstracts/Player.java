@@ -1,5 +1,6 @@
 package ar.com.ada.online.second.abstracts;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
@@ -7,7 +8,7 @@ public class Player {
     private String location;
     private Integer lifeLevel = 100;
     private Integer magicEnergy = 100;
-    private String spellList;
+    private List<Spell> spellList;
     private String actualPlayer;
     private String oponent;
 
@@ -26,7 +27,6 @@ public class Player {
         this.location = location;
         this.lifeLevel = lifeLevel;
         this.magicEnergy = magicEnergy;
-        this.spellList = spellList;
         this.keyboard = keyboard;
     }
 
@@ -62,12 +62,12 @@ public class Player {
         this.magicEnergy = magicEnergy;
     }
 
-    public String getSpellList() {
+    public List<Spell> getSpellList() {
         return spellList;
     }
 
-    public void setSpellList(String spellList) {
-        this.spellList = spellList;
+    public void addSpell(Spell spell) {
+        spellList.add(spell);
     }
 
     public Scanner getKeyboard() {

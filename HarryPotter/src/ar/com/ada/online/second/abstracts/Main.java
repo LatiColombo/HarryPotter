@@ -8,9 +8,15 @@ public class Main {
         Game game = new Game();
         Scanner keyboard = new Scanner(System.in);
 
-        game.selectPlayer();
-        game.isPlayerWizard();
-        game.menu(game, keyboard);
+//        game.selectPlayerOne();
+
+        //game.menu(game, keyboard);
+
+        System.out.println("Ahora seleccionemos al segundo jugador");
+
+        game.selectPlayerTwo();
+
+        //game.menu(game, keyboard);
 
 
 

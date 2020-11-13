@@ -13,24 +13,45 @@ public class Game {
 
     Scanner keyboard = new Scanner(System.in);
 
-    protected void selectPlayer() {
+    public void selectPlayerOne() {
         System.out.println("¿Qué tipo de personaje serás?");
         System.out.println("\n\t1) Mago\n\t2) Elfo");
-        Player player = null;
+        Player playerOne = null;
         int choose = keyboard.nextInt();
         switch (choose) {
             case 1:
-                player = selectWizard();
+                playerOne = selectWizard();
                 isPlayerWizard = true;
                 break;
             case 2:
-                player = selectElf();
+                playerOne = selectElf();
                 isPlayerWizard = false;
                 break;
             default:
-                player = null;
+                playerOne = null;
                 System.out.println("Debes elegir una opción válida");
+
+        }
+    }
+
+    public void selectPlayerTwo() {
+        System.out.println("¿Qué tipo de personaje serás?");
+        System.out.println("\n\t1) Mago\n\t2) Elfo");
+        Player playerTwo = null;
+        int choose = keyboard.nextInt();
+        switch (choose) {
+            case 1:
+                playerTwo = selectWizard();
+                isPlayerWizard = true;
                 break;
+            case 2:
+                playerTwo = selectElf();
+                isPlayerWizard = false;
+                break;
+            default:
+                playerTwo = null;
+                System.out.println("Debes elegir una opción válida");
+
         }
     }
 
@@ -119,18 +140,14 @@ public class Game {
             default:
                 wizard = null;
                 System.out.println("Debes elegir un número del 1 al 5");
-                break;
+
         }
 
         } while (aux == null);
-        return wizard;
-    }
 
-    public void isPlayerWizard() {
-        if (isPlayerWizard = true) {
-            getRandomWand();
-            System.out.println(" ");
-        }
+        Wand wand = getRandomWand();
+        wizard.setWand(wand);
+        return wizard;
     }
 
     private Wand getRandomWand() {
@@ -150,7 +167,7 @@ public class Game {
         return list.get(index); //acá estoy retornando la varita
     }
 
-    protected static void menu(Game game, Scanner keyboard) {
+    public void menu(Player player, Scanner keyboard) {
         int continueMenu = 0;
         int spellCount = 0;
         do {
@@ -161,19 +178,19 @@ public class Game {
                 case 1:
                     AttackSpell attackSpell = getAttackSpellItem(keyboard); // llamo al método y le paso el teclado para el ingreso
                     if (attackSpell != null)
-                        game.addSpell(attackSpell);
+                        player.addSpell(attackSpell);
                     spellCount++;
                     break;
                 case 2:
                     DefenseSpell defenseSpell = getDefenseSpellItem(keyboard);
                     if (defenseSpell != null)
-                        game.addSpell(defenseSpell);
+                        player.addSpell(defenseSpell);
                     spellCount++;
                     break;
                 case 3:
                     EnergySpell energySpell = getEnergySpellItem(keyboard);
                     if (energySpell != null)
-                        game.addSpell(energySpell);
+                        player.addSpell(energySpell);
                     spellCount++;
                     break;
                 default:
