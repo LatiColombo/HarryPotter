@@ -4,54 +4,32 @@ import java.util.*;
 
 public class Game {
     private static int attackSpellQtty = 0;
-    private Player playerOne;
-    private Player playerTwo;
-    private boolean isPlayerWizard;
+    protected static Player playerOne = new Player();
+    protected static Player playerTwo = new Player();
+    private boolean alive = true;
     private boolean isDark;
     AttackSpell attackSpell = new AttackSpell();
     private ArrayList<Spell> spells = new ArrayList<>();
 
     Scanner keyboard = new Scanner(System.in);
 
-    public void selectPlayerOne() {
+    public void selectPlayer(Player player, Scanner keyboard) {
         System.out.println("¿Qué tipo de personaje serás?");
         System.out.println("\n\t1) Mago\n\t2) Elfo");
-        Player playerOne = null;
+        Player playerPlayer = null;
         int choose = keyboard.nextInt();
         switch (choose) {
             case 1:
-                playerOne = selectWizard();
+                playerPlayer = selectWizard();
                 isPlayerWizard = true;
                 break;
             case 2:
-                playerOne = selectElf();
+                playerPlayer = selectElf();
                 isPlayerWizard = false;
                 break;
             default:
-                playerOne = null;
+                playerPlayer = null;
                 System.out.println("Debes elegir una opción válida");
-
-        }
-    }
-
-    public void selectPlayerTwo() {
-        System.out.println("¿Qué tipo de personaje serás?");
-        System.out.println("\n\t1) Mago\n\t2) Elfo");
-        Player playerTwo = null;
-        int choose = keyboard.nextInt();
-        switch (choose) {
-            case 1:
-                playerTwo = selectWizard();
-                isPlayerWizard = true;
-                break;
-            case 2:
-                playerTwo = selectElf();
-                isPlayerWizard = false;
-                break;
-            default:
-                playerTwo = null;
-                System.out.println("Debes elegir una opción válida");
-
         }
     }
 
@@ -199,6 +177,10 @@ public class Game {
             }
             System.out.println("Querés agregar otro hechizo?\n\t1) Sí\n\t2) No");
             continueMenu = keyboard.nextInt(); // capturo la elección del usuario
+            if (continueMenu != 1 && continueMenu != 2 ) {
+                System.out.println("Debes elegir 1 ó 2");
+                continueMenu = 1;
+            }
 
         } while (continueMenu == 1 && spellCount < 7);
 
@@ -344,6 +326,11 @@ public class Game {
             isDark = false;
         }
     }
+
+    public void turn(Player playerOne){
+        if (playerOne == alive) {
+    }
+
 
 
 }

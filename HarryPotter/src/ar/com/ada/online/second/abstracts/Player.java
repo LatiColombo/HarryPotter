@@ -1,5 +1,6 @@
 package ar.com.ada.online.second.abstracts;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,9 +9,9 @@ public class Player {
     private String location;
     private Integer lifeLevel = 100;
     private Integer magicEnergy = 100;
-    private List<Spell> spellList;
+    protected List<Spell> spellList = new ArrayList<Spell>();
     private String actualPlayer;
-    private String oponent;
+    private String opponent;
 
     Scanner keyboard = new Scanner(System.in);
 
@@ -78,5 +79,17 @@ public class Player {
         this.keyboard = keyboard;
     }
 
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", lifeLevel=" + lifeLevel +
+                ", magicEnergy=" + magicEnergy +
+                ", spellList=" + spellList +
+                ", actualPlayer='" + actualPlayer + '\'' +
+                ", opponent='" + opponent + '\'' +
+                ", keyboard=" + keyboard +
+                '}';
+    }
 }

@@ -1,60 +1,60 @@
 package ar.com.ada.online.second.abstracts;
 
 public class Spell {
-    protected static Integer requiredMagicPoints;
-    protected static Integer attack = 0;
-    protected static Integer heal = 0;
-    protected static Integer magicEnergy = 0;
-    protected static String name;
+    protected Integer requiredMagicPoints;
+    protected Integer attack = 0;
+    protected Integer heal = 0;
+    protected Integer magicEnergy = 0;
+    protected String name;
 
     public Spell() {
     }
 
-    public Spell(Integer requiredMagicPoints, String name) {
+    public Spell(Integer requiredMagicPoints, Integer attack, Integer heal, Integer magicEnergy, String name) {
         this.requiredMagicPoints = requiredMagicPoints;
-        this.name = name;
-        this.heal = heal;
         this.attack = attack;
+        this.heal = heal;
         this.magicEnergy = magicEnergy;
+        this.name = name;
     }
 
-    public static Integer getRequiredMagicPoints() {
+    public Integer getRequiredMagicPoints() {
         return requiredMagicPoints;
     }
 
-    public static void setRequiredMagicPoints(Integer requiredMagicPoints) {
-        Spell.requiredMagicPoints = requiredMagicPoints;
+    public void setRequiredMagicPoints(Integer requiredMagicPoints) {
+        this.requiredMagicPoints = requiredMagicPoints;
     }
 
-    public static String getName() {
-        return name;
-    }
-
-    public static void setName(String name) {
-        Spell.name = name;
-    }
-
-    public static Integer getAttack() {
+    public Integer getAttack() {
         return attack;
     }
 
-    public static void setAttack(Integer attack) {
-        Spell.attack = attack;
+    public void setAttack(Integer attack) {
+        this.attack = attack;
     }
 
-    public static Integer getHeal() {
+    public Integer getHeal() {
         return heal;
     }
 
-    public static void setHeal(Integer heal) {
-        Spell.heal = heal;
+    public void setHeal(Integer heal) {
+        this.heal = heal;
     }
 
-    public static Integer getMagicEnergy() {
+    public Integer getMagicEnergy() {
         return magicEnergy;
     }
 
-    public static void setMagicEnergy(Integer magicEnergy) {
-        Spell.magicEnergy = magicEnergy;
+    public void setMagicEnergy(Integer magicEnergy) {
+        this.magicEnergy = magicEnergy;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

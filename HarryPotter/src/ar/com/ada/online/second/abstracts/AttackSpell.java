@@ -6,10 +6,6 @@ public class AttackSpell extends Spell {
     public AttackSpell() {
     }
 
-    public AttackSpell(Integer requiredMagicPoints, String name) {
-        super(requiredMagicPoints, name);
-    }
-
     public static String getSpellItem() {
         return spellItem;
     }
